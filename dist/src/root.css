@@ -1,0 +1,16 @@
+:root {
+    --bg-color: #111111;
+    --text-color: #bdbdbd;
+    --text-hover: #f9f1f1;
+
+    --navbar-hover: #76aee6;
+
+    --mainsection-bg-color: #141414;
+    --mainsection-text: #fff;
+    --mainsection-text-description: #ffffff9f;
+
+    --login-border: #888;
+
+    --font-family: 'Urbanist', sans-serif;
+    /* ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji */
+}
