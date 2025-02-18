@@ -5,11 +5,10 @@ import MainSection from "./sections/Main.jsx";
 import ProductsPage from "./sections/Products.jsx";
 // import AboutPage from "./sections/AboutPage.jsx"; 
 import "./App.css";
-import strandlogo from "./assets/strandlogo.png";
 
 function App() {
   return (
-    <Router basename="/smodifications-homepage">
+    <Router basename="/">
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
