@@ -9,7 +9,7 @@ import "./App.css";
 
 function App() {
   return (
-    <Router basename="/smodifications-homepage">
+    <Router>
       <Routes>
         <Route path="/" element={<MainLayout />} />
         <Route path="/signup" element={<SignupOnly />} />
