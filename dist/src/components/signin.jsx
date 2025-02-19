@@ -37,7 +37,7 @@ const Signin = () => {
     localStorage.setItem("user_id", data.id); 
   
     console.log("✅ Login successful! Redirecting...");
-    window.location.href = "http://localhost:5173"; 
+    window.location.href = "https://admin.taxzyyyscripts.xyz"; 
   };  
 
   return (
@@ -62,7 +62,7 @@ const Signin = () => {
         </form>
 
         <p className="register-link">
-          Don't have an account? <a href="signup">Register</a>
+          Don't have an account? <a href="#/signup">Register</a>
         </p>
       </div>
     </div>
