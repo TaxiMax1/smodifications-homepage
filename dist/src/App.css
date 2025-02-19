@@ -273,20 +273,23 @@ body {
   width: 1200px;
   text-align: center;
   margin-top: 30px;
-  margin-left: 15px;
+  margin-left: 0;
 }
 
 .title-container {
   display: flex;
   align-items: center;
-  gap: 10px;
-  text-align: start;
-  margin-left: 20px;
+  justify-content: flex-start; 
+  width: 100%;
+  margin-left: 0; 
+  padding-left: 0; 
+  position: relative;
 }
 
 .title-container h1 {
-  font-weight: 500;
-  color: var(--text-color);
+  text-align: left;
+  margin: 0;
+  padding-left: 0; 
 }
 
 .logo-icon {
@@ -765,4 +768,58 @@ body {
 
 .about-smod a {
   color: var(--text-hover);
+}
+
+
+
+
+.success-title {
+  color: var(--text-hover);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+.success-description {
+  color: var(--text-hover);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+}
+.success-img {
+  width: 500px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-left: 470px;
+}
+
+.error-container {
+  color: var(--text-hover);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.error-container h3 {
+  font-weight: 400;
+}
+
+.error-container button {
+  padding: 15px 30px;
+  border-radius: 6px;
+  background-color: var(--signup-bg);
+  border: 1px solid #333;
+  color: var(--text-hover);
+  cursor: pointer;
+  outline: none;
+  margin-top: 50px;
+  font-size: 1rem;
+  font-weight: 600;
 }

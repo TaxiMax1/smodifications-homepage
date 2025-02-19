@@ -6,6 +6,8 @@ import ProductsPage from "./sections/Products.jsx";
 import AboutPage from "./sections/about.jsx";
 import Signup from "./components/signup.jsx";
 import Signin from "./components/signin.jsx";
+import Success from "./components/success.jsx";
+import Error from "./components/error.jsx";
 import "./App.css";
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Route path="/signup" element={<SignupOnly />} />
         <Route path="/signin" element={<SigninOnly />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/success" element={<SuccessPage />} />
+        <Route path="/cancel" element={<ErrorPage />} />
       </Routes>
     </Router>
   );
@@ -44,6 +48,22 @@ function HomePage() {
     <>
       <MainSection />
       <ProductsPage />
+    </>
+  );
+}
+
+function SuccessPage() {
+  return (
+    <>
+      <Success />
+    </>
+  );
+}
+
+function ErrorPage() {
+  return (
+    <>
+      <Error />
     </>
   );
 }
