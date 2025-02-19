@@ -433,7 +433,7 @@ body {
   justify-content: center;
   height: 100vh;
   background: var(--bg-color);
-  /* user-select: none; */
+  user-select: none;
   animation: fadeIn 0.5s ease forwards;
 }
 
@@ -586,7 +586,7 @@ body {
   justify-content: center;
   height: 100vh;
   background-color: var(--bg-color);
-  /* user-select: none; */
+  user-select: none;
   animation: zoomIn 0.5s ease forwards;
 }
 
@@ -651,7 +651,7 @@ body {
   white-space: nowrap;
 }
 
-custom-checkbox {
+.custom-checkbox {
   appearance: none;
   width: 18px;
   height: 18px;
@@ -719,4 +719,50 @@ custom-checkbox {
 
 .register-link a:hover {
   text-decoration: underline;
+}
+
+
+
+
+
+
+/* About */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  border-top: 1px solid #333;
+  animation: zoomIn 0.6s ease-out forwards;
+  text-align: center; 
+}
+
+.about-header {
+  color: var(--text-hover);
+  font-size: 3rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.about-header span {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px var(--about-color);
+}
+
+.about-smod {
+  color: var(--text-hover);
+  font-size: 1rem;
+  font-weight: 200;
+  text-align: center; 
+  max-width: 800px; 
+  line-height: 1.6; 
+}
+
+.about-smod span {
+  font-weight: 500;
+}
+
+.about-smod a {
+  color: var(--text-hover);
 }

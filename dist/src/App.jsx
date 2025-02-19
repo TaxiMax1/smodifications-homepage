@@ -3,6 +3,7 @@ import Navbar from "./sections/Navbar.jsx";
 import Footer from "./sections/Footer.jsx";
 import MainSection from "./sections/Main.jsx"; 
 import ProductsPage from "./sections/Products.jsx";
+import AboutPage from "./sections/about.jsx";
 import Signup from "./components/signup.jsx";
 import Signin from "./components/signin.jsx";
 import "./App.css";
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<MainLayout />} />
         <Route path="/signup" element={<SignupOnly />} />
         <Route path="/signin" element={<SigninOnly />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
     </Router>
   );

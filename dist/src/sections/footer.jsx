@@ -8,8 +8,8 @@ const Footer = () => {
             </div>
             <div className="footer-title">S Modifications</div>
             <div className="footer-socials">
-                <a href="https://discord.com" target="_blank" rel="noopener noreferrer">Discord</a>
-                <a href="/store">Store</a>
+                <a href="https://discord.gg/NQJz66eGsF" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a href="/tos">Terms of Service</a>
             </div>
         </footer>
     );

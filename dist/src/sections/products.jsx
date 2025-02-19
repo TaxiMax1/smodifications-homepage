@@ -6,6 +6,7 @@ const ProductsPage = () => {
         { id: 2, name: "Money", description: "You need to buy minimum: 100 mil.", price: "€2.50" },
         { id: 3, name: "Levels", description: "You need to buy minimum: 200 levels.", price: "€5.00" },
         { id: 4, name: "Mod Menu", description: "No limit to buy a mod menu.", price: "N/A" },
+        { id: 5, name: "Yim Menu", description: "Lifetime and is gonna fix ur game", price: "€15.00" },
     ]);
 
     return (
