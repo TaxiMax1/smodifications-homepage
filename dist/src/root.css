@@ -11,6 +11,14 @@
 
     --login-border: #888;
 
+    --login-border: rgba(255, 255, 255, 0.1);
+    --signup-bg: rgba(25, 25, 25, 0.9);
+    --signup-input-color: rgba(35, 35, 35, 0.9);
+    --login-secondary-color: #2471a3;
+    --login-secondary-hover: #1b5a89;
+    --login-text: #bdbdbd;
+    --login-bg-focus: #3498db;
+
     --font-family: 'Urbanist', sans-serif;
     /* ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji */
 }

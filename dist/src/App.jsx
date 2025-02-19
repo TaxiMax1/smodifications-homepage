@@ -1,22 +1,40 @@
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./sections/Navbar.jsx";
 import Footer from "./sections/Footer.jsx";
 import MainSection from "./sections/Main.jsx"; 
 import ProductsPage from "./sections/Products.jsx";
-// import AboutPage from "./sections/AboutPage.jsx"; 
+import Signup from "./components/signup.jsx";
+import Signin from "./components/signin.jsx";
 import "./App.css";
 
 function App() {
   return (
-    <Router basename="">
-      <Navbar />
+    <Router basename="/smodifications-homepage">
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        {/* <Route path="/about" element={<AboutPage />} /> */}
+        <Route path="/" element={<MainLayout />} />
+        <Route path="/signup" element={<SignupOnly />} />
+        <Route path="/signin" element={<SigninOnly />} />
       </Routes>
-      <Footer />
     </Router>
   );
+}
+
+function MainLayout() {
+  return (
+    <>
+      <Navbar />
+      <HomePage />
+      <Footer />
+    </>
+  );
+}
+
+function SignupOnly() {
+  return <Signup />;
+}
+
+function SigninOnly() {
+  return <Signin />;
 }
 
 function HomePage() {
