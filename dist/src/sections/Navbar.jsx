@@ -27,8 +27,8 @@ const Navbar = () => {
                         <button className="logout-button" onClick={handleLogout}>Log Out</button>
                     ) : (
                         <>
-                            <a href="smodifications-homepage/signup"><button className="signup-button">Sign Up</button></a>
-                            <a href="smodifications-homepage/signin"><button className="signin-button">Sign In</button></a>
+                            <a href="#/signup"><button className="signup-button">Sign Up</button></a>
+                            <a href="#/signin"><button className="signin-button">Sign In</button></a>
                         </>
                     )}
                 </div>
