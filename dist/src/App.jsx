@@ -2,7 +2,7 @@ import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./sections/Navbar.jsx";
 import Footer from "./sections/Footer.jsx";
 import MainSection from "./sections/Main.jsx"; 
-import ProductsPage from "./sections/Products.jsx";
+import ProductsPage from "./sections/products.jsx";
 import Signup from "./components/signup.jsx";
 import Signin from "./components/signin.jsx";
 import Success from "./components/success.jsx";
