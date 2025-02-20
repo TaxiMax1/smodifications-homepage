@@ -3,7 +3,7 @@
     --text-color: #bdbdbd;
     --text-hover: #f9f1f1;
 
-    --navbar-hover: #76aee6;
+    --navbar-hover: #e1e1e1;
 
     --mainsection-bg-color: #141414;
     --mainsection-text: #fff;
@@ -20,6 +20,17 @@
     --login-bg-focus: #3498db;
 
     --about-color: #a9c5e1;
+
+    --dropdown-bg: #111;
+    --dropdown-hover: #000;
+
+    --profilecard-bg: #121212;
+
+    --menu-items-active: #009dff1d;
+    --menu-items-text: #007dcb;
+
+    --discord-button-bg: #7289da;
+    --discord-button-bg-hover: #637cd5;
 
     --font-family: 'Urbanist', sans-serif;
     /* ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji */
