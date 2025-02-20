@@ -32,8 +32,8 @@ app.post('/create-checkout-session', express.json(), async (req, res) => {
             ],
             metadata: { username: user.username },
             mode: 'payment',
-            success_url: `${process.env.CLIENT_URL}/success`,
-            cancel_url: `${process.env.CLIENT_URL}/cancel`,
+            success_url: `${process.env.CLIENT_URL}/#/success`,
+            cancel_url: `${process.env.CLIENT_URL}/#/cancel`,
         });
 
         res.json({ url: session.url });

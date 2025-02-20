@@ -7,7 +7,7 @@ const Success = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigate("https://admin.taxzyyyscripts.xyz/");
+            navigate("/");
         }, 5000);
         
         return () => clearTimeout(timer);
