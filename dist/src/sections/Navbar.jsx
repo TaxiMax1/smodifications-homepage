@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "../components/supabaseClient";
 import strandlogo from "../assets/strandlogo.png";
@@ -6,7 +6,29 @@ import CheckLogin from "../components/checklogin";
 
 const Navbar = () => {
     const { user, handleLogout } = CheckLogin();
-    console.log("User state:", user);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
+
+    const toggleDropdown = () => {
+        setDropdownOpen(!dropdownOpen);
+    };
+
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setDropdownOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        if (dropdownOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [dropdownOpen]);
 
     return (
         <header className="header-container">
@@ -24,11 +46,21 @@ const Navbar = () => {
                 </div>
                 <div className="login-buttons">
                     {user ? (
-                        <button className="logout-button" onClick={handleLogout}>Log Out</button>
+                        <div className="profile-container" ref={dropdownRef}>
+                            <button className="profile-button" onClick={toggleDropdown}>
+                                {user.username}
+                            </button>
+                            {dropdownOpen && (
+                                <div className="dropdown-menu">
+                                    <Link to="/profile" className="dropdown-item">Profile</Link>
+                                    <button className="dropdown-item logout-button" onClick={handleLogout}>Log Out</button>
+                                </div>
+                            )}
+                        </div>
                     ) : (
                         <>
-                            <a href="#/signup"><button className="signup-button">Sign Up</button></a>
-                            <a href="#/signin"><button className="signin-button">Sign In</button></a>
+                            <a href="smodifications-homepage/signup"><button className="signup-button">Sign Up</button></a>
+                            <a href="smodifications-homepage/signin"><button className="signin-button">Sign In</button></a>
                         </>
                     )}
                 </div>

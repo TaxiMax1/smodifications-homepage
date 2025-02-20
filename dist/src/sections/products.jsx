@@ -1,68 +1,72 @@
-import React, { useState } from "react";
-import axios from "axios";
-import CheckLogin from "../components/CheckLogin"; 
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { supabase } from "../components/supabaseClient";
+import strandlogo from "../assets/strandlogo.png";
+import CheckLogin from "../components/checklogin";
 
-const ProductsPage = () => {
-    const { user } = CheckLogin(); 
+const Navbar = () => {
+    const { user, handleLogout } = CheckLogin();
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
-    const [products] = useState([
-        { id: 1, name: "Modded Cars", description: "You need to buy minimum: 3 cars.", price: "€0.00" },
-        { id: 2, name: "Money", description: "You need to buy minimum: 100 mil.", price: "€10.00" },
-        { id: 3, name: "Levels", description: "You need to buy minimum: 200 levels.", price: "€5.00" },
-        { id: 4, name: "Mod Menu", description: "No limit to buy a mod menu.", price: "N/A" },
-        { id: 5, name: "Yim Menu", description: "Lifetime and is gonna fix ur game", price: "€15.00" },
-    ]);
+    const toggleDropdown = () => {
+        setDropdownOpen(!dropdownOpen);
+    };
 
-    const handleBuyNow = async (product) => {
-        if (!user) {
-            alert("You must be logged in to make a purchase.");
-            return;
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setDropdownOpen(false);
         }
-    
-        if (product.price === "N/A") {
-            alert("This product cannot be purchased.");
-            return;
+    };
+
+    useEffect(() => {
+        if (dropdownOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
         }
-    
-        try {
-            const response = await axios.post("http://localhost:5002/create-checkout-session", {
-                product,
-                user: { username: user.username },
-            });
-            window.location.href = response.data.url;
-        } catch (error) {
-            console.error("Error creating checkout session:", error);
-        }
-    };    
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [dropdownOpen]);
 
     return (
-        <div className="products-container">
-            <div className="all-products">
-                <h1>All Products</h1>
-                <div className="all-products-scroll">
-                    {products.map((product) => (
-                        <div key={product.id} className="product">
-                            <h2>{product.name}</h2>
-                            <h4>{product.description}</h4> 
-                            <span className="price">{product.price}</span> 
-                            <button 
-                                className="buy-button" 
-                                onClick={() => handleBuyNow(product)} 
-                                disabled={!user} 
-                                style={{
-                                    backgroundColor: !user ? "gray" : "",
-                                    cursor: !user ? "not-allowed" : "pointer",
-                                    pointerEvents: !user ? "none" : "auto",
-                                }}
-                            >
-                                {user ? "Buy Now" : "Login to Buy"}
-                            </button>
-                        </div>
-                    ))}
+        <header className="header-container">
+            <nav className="navbar-container">
+                <div className="nav-left">
+                    <a href="/" className="nav-logo-link">
+                        <img className="nav-logoimg" src={strandlogo} alt="Strand Logo" />
+                        <div className="nav-title">S Modifications</div>
+                    </a>
                 </div>
-            </div>
-        </div>
+                <div className="nav-links">
+                    <Link to="/"><h1>Home</h1></Link>
+                    <Link to="/about"><h1>About</h1></Link>
+                    <Link to="/contact"><h1>Contact</h1></Link>
+                </div>
+                <div className="login-buttons">
+                    {user ? (
+                        <div className="profile-container" ref={dropdownRef}>
+                            <button className="profile-button" onClick={toggleDropdown}>
+                                {user.username}
+                            </button>
+                            {dropdownOpen && (
+                                <div className="dropdown-menu">
+                                    <Link to="/profile" className="dropdown-item">Profile</Link>
+                                    <button className="dropdown-item logout-button" onClick={handleLogout}>Log Out</button>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <>
+                            <a href="smodifications-homepage/signup"><button className="signup-button">Sign Up</button></a>
+                            <a href="smodifications-homepage/signin"><button className="signin-button">Sign In</button></a>
+                        </>
+                    )}
+                </div>
+            </nav>
+        </header>
     );
 };
 
-export default ProductsPage;
+export default Navbar;
